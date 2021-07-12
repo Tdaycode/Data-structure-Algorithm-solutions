@@ -5,40 +5,23 @@ direction = input('Type encode to encrypt, type decode to decrypt:\n');
 shift = int(input('Type the number of shift:\n'));
 text = input('Input the text to be encrypted\n');
 # abc
-# ENCRYPTION CODE
-def encrypt(plain_text, shift_amount):
-    cipher_text = ''
-    for letter in plain_text:
+
+
+
+
+
+def caesar(start_text, shift_amount, cipher_direction):
+    end_text =''
+    if cipher_direction == 'decode':
+            shift_amount *= -1
+    for letter in start_text:
         position = alphabet.index(letter)
-        position += shift_amount
-        encrypted = alphabet[position];
-        cipher_text += encrypted
-    print(f'The Encoded is {cipher_text} ')
-        
+        new_position = position + shift_amount
+        end_text += alphabet[new_position];
+    print(f'The {cipher_direction}d text is {end_text}');
 
-       
-        
-        
-encrypt(text, shift)
+caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
 
-
-# DECRYPTION CODE
-
-direction = input('Type decode to encrypt, type decode to decrypt:\n');
-shift = int(input('Type the number of shift:\n'));
-text = input('Input the text to be decrypted\n');
-
-def decrypt(plain_text=text, shift_amount = shift):
-    cipher_decrypt = ''
-    for letter in plain_text:
-        position = alphabet.index(letter)
-        position -= shift_amount
-        decrypted = alphabet[position];
-        cipher_decrypt += decrypted
-    print(f'The decoded is {cipher_decrypt} ')
-
-
-decrypt(text, shift)
     
 
    
